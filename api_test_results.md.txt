@@ -1,0 +1,31 @@
+# API Testing Results - OpenWeather API
+
+### 1. Current Weather Data for London
+- **Status**: Passed
+- **Response Time**: 220ms
+- **Tests**: 
+  - Status code is 200 ✅
+  - Content-Type is application/json ✅
+  - Response has city name ("London") ✅
+  - Response has valid temperature (15.6°C) ✅
+
+---
+
+### 2. 5 Day Weather Forecast for London
+- **Status**: Passed
+- **Response Time**: 300ms
+- **Tests**: 
+  - Status code is 200 ✅
+  - Response has valid list of forecasts (40 entries) ✅
+  - Each forecast has valid temperature (between 10°C - 20°C) ✅
+
+---
+
+### 3. Invalid City Request (InvalidCity)
+- **Status**: Failed
+- **Response Time**: 180ms
+- **Tests**: 
+  - Status code is 404 ✅
+  - Error message "city not found" displayed ✅
+
+---

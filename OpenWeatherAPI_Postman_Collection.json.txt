@@ -1,0 +1,97 @@
+{
+  "info": {
+    "name": "OpenWeather API Testing",
+    "_postman_id": "your_collection_id",
+    "description": "Postman collection for testing OpenWeather API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Current Weather by City",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.openweathermap.org/data/2.5/weather?q=London&appid={{API_KEY}}",
+          "host": [
+            "https://api.openweathermap.org"
+          ],
+          "path": [
+            "data",
+            "2.5",
+            "weather"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "London"
+            },
+            {
+              "key": "appid",
+              "value": "{{API_KEY}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get 5 Day Weather Forecast",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.openweathermap.org/data/2.5/forecast?q=London&appid={{API_KEY}}",
+          "host": [
+            "https://api.openweathermap.org"
+          ],
+          "path": [
+            "data",
+            "2.5",
+            "forecast"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "London"
+            },
+            {
+              "key": "appid",
+              "value": "{{API_KEY}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Invalid City Test",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.openweathermap.org/data/2.5/weather?q=InvalidCity&appid={{API_KEY}}",
+          "host": [
+            "https://api.openweathermap.org"
+          ],
+          "path": [
+            "data",
+            "2.5",
+            "weather"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "InvalidCity"
+            },
+            {
+              "key": "appid",
+              "value": "{{API_KEY}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

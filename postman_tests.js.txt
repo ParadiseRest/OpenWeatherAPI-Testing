@@ -1,0 +1,46 @@
+// Test for Current Weather by City
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Content-Type is application/json", function () {
+    pm.response.to.have.header("Content-Type", "application/json");
+});
+
+pm.test("Response has city name", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.name).to.eql("London");
+});
+
+pm.test("Response has valid temperature", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.main.temp).to.be.a("number");
+});
+
+// Test for 5 Day Weather Forecast
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Response has valid list of forecasts", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.list).to.be.an("array");
+    pm.expect(jsonData.list.length).to.be.greaterThan(0);
+});
+
+pm.test("Each forecast has valid temperature", function () {
+    var jsonData = pm.response.json();
+    jsonData.list.forEach(function (forecast) {
+        pm.expect(forecast.main.temp).to.be.a("number");
+    });
+});
+
+// Test for Invalid City
+pm.test("Status code is 404", function () {
+    pm.response.to.have.status(404);
+});
+
+pm.test("Error message is displayed", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.message).to.eql("city not found");
+});
